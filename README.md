@@ -28,5 +28,14 @@ $ npm install
 $ npm run start
 ```
 
-### I'm looking for a junior developer role
-Please feel free to contact me on [linkedin](https://www.linkedin.com/in/hannahpark1000/) and learn more about me [here](https://www.hannahmariepark.com/)
+## TODO:
+
+- Deploy to AWS
+- Create Dev and Prod
+- Hook up DNS
+- Get the look and feel more like classic WORDLE
+  - Spacing of grid 
+  - Keyboard
+  - Top bar
+- Alter the 'Share' tab to display more information about NSFWordle
+- Update the public assets (ideally generate on build)
