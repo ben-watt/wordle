@@ -26,9 +26,14 @@ function App() {
     if (loaded?.solution !== solution) {
       return []
     }
-    if (loaded.guesses.includes(solution)) {
+
+    if(loaded == null)
+      return []
+
+    if (loaded?.guesses.includes(solution)) {
       setIsGameWon(true)
     }
+
     return loaded.guesses
   })
 
@@ -92,7 +97,7 @@ function App() {
         variant="success"
       />
       <div className="flex w-80 mx-auto items-center mb-8">
-        <h1 className="text-xl grow font-bold">Not Wordle</h1>
+        <h1 className="text-xl grow font-bold">NSFWordle</h1>
         <InformationCircleIcon
           className="h-6 w-6 cursor-pointer"
           onClick={() => setIsInfoModalOpen(true)}
