@@ -6,11 +6,13 @@ import { Keyboard } from './components/keyboard/Keyboard'
 import { AboutModal } from './components/modals/AboutModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { WinModal } from './components/modals/WinModal'
-import { isWordInWordList, isWinningWord, solution } from './lib/words'
+import { isWordInWordList, isWinningWord, solution, solutionLength } from './lib/words'
 import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
 } from './lib/localStorage'
+
+const guessAmount = 5;
 
 function App() {
   const [currentGuess, setCurrentGuess] = useState('')
@@ -48,7 +50,7 @@ function App() {
   }, [isGameWon])
 
   const onChar = (value: string) => {
-    if (currentGuess.length < 5 && guesses.length < 6) {
+    if (currentGuess.length < solutionLength && guesses.length < guessAmount) {
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
@@ -67,7 +69,7 @@ function App() {
 
     const winningWord = isWinningWord(currentGuess)
 
-    if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
+    if (currentGuess.length === solutionLength && guesses.length < guessAmount && !isGameWon) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
 
@@ -83,6 +85,8 @@ function App() {
       }
     }
   }
+
+  console.log(solution);
 
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -103,7 +107,7 @@ function App() {
           onClick={() => setIsInfoModalOpen(true)}
         />
       </div>
-      <Grid guesses={guesses} currentGuess={currentGuess} />
+      <Grid guesses={guesses} currentGuess={currentGuess} solutionLength={solutionLength} guessLimit={guessAmount} />
       <Keyboard
         onChar={onChar}
         onDelete={onDelete}
