@@ -7,21 +7,24 @@ type Props = {
   currentGuess: string,
   solutionLength: number,
   guessLimit: number
+  className: string,
 }
 
-export const Grid = ({ guesses, currentGuess, solutionLength, guessLimit }: Props) => {
+export const Grid = ({ className = "", guesses, currentGuess, solutionLength, guessLimit }: Props) => {
   const numberofEmpties = guessLimit - (guesses.length + 1);
   const empties = guesses.length < guessLimit ? Array.from(Array(numberofEmpties)) : [];
 
   return (
-    <div className="pb-6">
-      {guesses.map((guess, i) => (
-        <CompletedRow key={i} guess={guess} />
-      ))}
-      {guesses.length < guessLimit && <CurrentRow guess={currentGuess} length={solutionLength} />}
-      {empties.map((_, i) => (
-        <EmptyRow key={i} length={solutionLength} />
-      ))}
+    <div className={`pb-6 ${className}`}>
+      <div>
+        {guesses.map((guess, i) => (
+          <CompletedRow key={i} guess={guess} />
+        ))}
+        {guesses.length < guessLimit && <CurrentRow guess={currentGuess} length={solutionLength} />}
+        {empties.map((_, i) => (
+          <EmptyRow key={i} length={solutionLength} />
+        ))}
+      </div>
     </div>
   )
 }

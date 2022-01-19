@@ -14,12 +14,12 @@ type Props = {
 export const Key = ({
   children,
   status,
-  width = 40,
+  width = 45,
   value,
   onClick,
 }: Props) => {
   const classes = classnames(
-    'flex items-center justify-center rounded mx-0.5 text-xs font-bold cursor-pointer',
+    'flex items-center justify-center rounded mx-0.5 my-0.5 text-xs font-bold cursor-pointer',
     {
       'bg-slate-200 hover:bg-slate-300 active:bg-slate-400': !status,
       'bg-slate-400 text-white': status === 'absent',

@@ -4,7 +4,6 @@ import { CheckIcon } from '@heroicons/react/outline'
 import { MiniGrid } from '../mini-grid/MiniGrid'
 import { shareStatus } from '../../lib/share'
 import { XCircleIcon } from '@heroicons/react/outline'
-import { randomBytes } from 'crypto'
 
 type Props = {
   isOpen: boolean

@@ -93,51 +93,60 @@ function App() {
   console.log(solution);
 
   return (
-    <div className="flex-col h-full justify-around py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
-      <Alert
-        message={`Oh sweet child. The word was '${solution}'`}
-        isOpen={isGameLost}
-      />
-      <Alert
-        message="Game copied to clipboard"
-        isOpen={shareComplete}
-        variant="success"
-      />
-      <div className="flex w-80 mx-auto items-center mb-8">
-        <h1 className="text-xl grow font-bold">NSFWordle</h1>
-        <InformationCircleIcon
-          className="h-6 w-6 cursor-pointer"
-          onClick={() => setIsInfoModalOpen(true)}
+    <div className="flex flex-col h-full justify-around py-2 w-fit mx-auto sm:px-6 lg:px-8">
+      <div>
+        <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
+        <Alert
+          message={`Oh sweet child. The word was '${solution}'`}
+          isOpen={isGameLost}
         />
+        <Alert
+          message="Game copied to clipboard"
+          isOpen={shareComplete}
+          variant="success"
+        />
+        <div className="flex w-80 mx-auto items-center mb-3">
+          <h1 className="text-2xl grow font-bold">NSFWordle</h1>
+          <InformationCircleIcon
+            className="h-6 w-6 cursor-pointer"
+            onClick={() => setIsInfoModalOpen(true)}
+          />
+        </div>
+        <hr />  
       </div>
-      <Grid guesses={guesses} currentGuess={currentGuess} solutionLength={solutionLength} guessLimit={guessLimit} />
+
+      <div className="grow">
+        <Grid className="flex justify-center items-center h-full" guesses={guesses} currentGuess={currentGuess} solutionLength={solutionLength} guessLimit={guessLimit} />
+      </div>
+     
       <Keyboard
         onChar={onChar}
         onDelete={onDelete}
         onEnter={onEnter}
         guesses={guesses}
       />
-      <WinModal
-        isOpen={isWinModalOpen}
-        handleClose={() => setIsWinModalOpen(false)}
-        guesses={guesses}
-        handleShare={() => {
-          setIsWinModalOpen(false)
-          setShareComplete(true)
-          return setTimeout(() => {
-            setShareComplete(false)
-          }, 2000)
-        }}
-      />
-      <InfoModal
-        isOpen={isInfoModalOpen}
-        handleClose={() => setIsInfoModalOpen(false)}
-      />
-      <AboutModal
-        isOpen={isAboutModalOpen}
-        handleClose={() => setIsAboutModalOpen(false)}
-      />
+      <div>
+        <WinModal
+          isOpen={isWinModalOpen}
+          handleClose={() => setIsWinModalOpen(false)}
+          guesses={guesses}
+          handleShare={() => {
+            setIsWinModalOpen(false)
+            setShareComplete(true)
+            return setTimeout(() => {
+              setShareComplete(false)
+            }, 2000)
+          }}
+        />
+        <InfoModal
+          isOpen={isInfoModalOpen}
+          handleClose={() => setIsInfoModalOpen(false)}
+        />
+        <AboutModal
+          isOpen={isAboutModalOpen}
+          handleClose={() => setIsAboutModalOpen(false)}
+        />
+      </div>
     </div>
   )
 }
