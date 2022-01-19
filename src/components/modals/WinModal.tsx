@@ -4,6 +4,7 @@ import { CheckIcon } from '@heroicons/react/outline'
 import { MiniGrid } from '../mini-grid/MiniGrid'
 import { shareStatus } from '../../lib/share'
 import { XCircleIcon } from '@heroicons/react/outline'
+import { randomBytes } from 'crypto'
 
 type Props = {
   isOpen: boolean
@@ -11,6 +12,23 @@ type Props = {
   guesses: string[]
   handleShare: () => void
 }
+
+
+const winningMessages = [
+  "Awesome, now wash your mouth out, you filthy animal!",
+  "Well done, you dirty minded sicko. ",
+  "Impressive! Disgusting, but impressive. ",
+  "Nice work, but what would your mother say?",
+  "Awesome, in a sickening way. ",
+  "Well peel that tangerine and throw it at a baby because you're a terrible human.  ",
+  "Eat soap. Because you're filthy inside.  ",
+  "Just got off the phone with David Attenborough. He said you're a different breed of human. ",
+  "Good work, now look in the mirror and have a word with yourself. ",
+  "Splendid.  You've lost your place in heaven. ",
+  "I've lost what little respect I had left for you. ",
+  "Bravo. Now have a think about what you said.",
+  "You did it! By the way covid called, it wants advice on how to be awful.",
+]
 
 export const WinModal = ({
   isOpen,
@@ -75,13 +93,15 @@ export const WinModal = ({
                   >
                     You won!
                   </Dialog.Title>
-                  <div className="mt-2">
+                  <p className="text-lg text-gray-500 m-5">
+                    {winningMessages[Math.floor(Math.random() * winningMessages.length)]}
+                  </p>
+                  <div className="m-5">
                     <MiniGrid guesses={guesses} />
-                    <p className="text-sm text-gray-500">Great job.</p>
                   </div>
                 </div>
               </div>
-              <div className="mt-5 sm:mt-6">
+              <div className="mt-2 sm:mt-2">
                 <button
                   type="button"
                   className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
