@@ -30,12 +30,20 @@ $ npm run start
 
 ## TODO:
 
-- Deploy to AWS
-- Create Dev and Prod
-- Hook up DNS
 - Get the look and feel more like classic WORDLE
   - Spacing of grid 
   - Keyboard
   - Top bar
 - Alter the 'Share' tab to display more information about NSFWordle
 - Update the public assets (ideally generate on build)
+- Sometimes scrolls on mobile
+
+Before Go Live:
+
+- Need to add the naughty words to the real word list
+- Need to randomise wordlist
+- Update the msEpoc
+
+Other:
+
+- Enter on the left?
