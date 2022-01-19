@@ -12,7 +12,7 @@ import {
   saveGameStateToLocalStorage,
 } from './lib/localStorage'
 
-const guessAmount = 5;
+const guessLimit = 6;
 
 function App() {
   const [currentGuess, setCurrentGuess] = useState('')
@@ -50,7 +50,7 @@ function App() {
   }, [isGameWon])
 
   const onChar = (value: string) => {
-    if (currentGuess.length < solutionLength && guesses.length < guessAmount) {
+    if (currentGuess.length < solutionLength && guesses.length < guessLimit) {
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
@@ -69,7 +69,9 @@ function App() {
 
     const winningWord = isWinningWord(currentGuess)
 
-    if (currentGuess.length === solutionLength && guesses.length < guessAmount && !isGameWon) {
+    console.log("guessLength: " + guesses.length);
+
+    if (currentGuess.length === solutionLength && guesses.length < guessLimit && !isGameWon) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
 
@@ -77,22 +79,23 @@ function App() {
         return setIsGameWon(true)
       }
 
-      if (guesses.length === 5) {
+      if (guesses.length === guessLimit - 1) {
         setIsGameLost(true)
         return setTimeout(() => {
           setIsGameLost(false)
-        }, 2000)
+        }, 10000)
       }
     }
   }
 
+  // TODO: Remove this line
   console.log(solution);
 
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
       <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
       <Alert
-        message={`You lost, the word was ${solution}`}
+        message={`Oh sweet child. The word was '${solution}'`}
         isOpen={isGameLost}
       />
       <Alert
@@ -107,7 +110,7 @@ function App() {
           onClick={() => setIsInfoModalOpen(true)}
         />
       </div>
-      <Grid guesses={guesses} currentGuess={currentGuess} solutionLength={solutionLength} guessLimit={guessAmount} />
+      <Grid guesses={guesses} currentGuess={currentGuess} solutionLength={solutionLength} guessLimit={guessLimit} />
       <Keyboard
         onChar={onChar}
         onDelete={onDelete}

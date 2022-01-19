@@ -19,11 +19,12 @@ export const getWordOfDay = () => {
   // const msInDay = 86400000
   //const index = Math.floor((now - epochMs) / msInDay)
   const index = 1;
+  const wordOfTheDay =  "FUCKS"//WORDS[index].toUpperCase()
 
   return {
-    solution: WORDS[index].toUpperCase(),
+    solution: wordOfTheDay,
     solutionIndex: index,
-    solutionLength: WORDS[index].length
+    solutionLength: wordOfTheDay.length
   }
 }
 
