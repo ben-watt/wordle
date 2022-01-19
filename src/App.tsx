@@ -69,6 +69,7 @@ function App() {
 
     const winningWord = isWinningWord(currentGuess)
 
+    // TODO: Remove this
     console.log("guessLength: " + guesses.length);
 
     if (currentGuess.length === solutionLength && guesses.length < guessLimit && !isGameWon) {
@@ -92,7 +93,7 @@ function App() {
   console.log(solution);
 
   return (
-    <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div className="flex-col h-full justify-around py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
       <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
       <Alert
         message={`Oh sweet child. The word was '${solution}'`}
