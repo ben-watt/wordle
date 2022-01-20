@@ -69,9 +69,6 @@ function App() {
 
     const winningWord = isWinningWord(currentGuess)
 
-    // TODO: Remove this
-    console.log("guessLength: " + guesses.length);
-
     if (currentGuess.length === solutionLength && guesses.length < guessLimit && !isGameWon) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
@@ -88,9 +85,6 @@ function App() {
       }
     }
   }
-
-  // TODO: Remove this line
-  console.log(solution);
 
   return (
     <div className="flex flex-col h-full justify-around py-2 max-w-xl mx-auto sm:px-6 lg:px-8">
