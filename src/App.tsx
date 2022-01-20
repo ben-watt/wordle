@@ -6,7 +6,7 @@ import { Keyboard } from './components/keyboard/Keyboard'
 import { AboutModal } from './components/modals/AboutModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { WinModal } from './components/modals/WinModal'
-import { isWordInWordList, isWinningWord, solution, solutionLength, nextWordMs, nextWordFomatted } from './lib/words'
+import { isWordInWordList, isWinningWord, solution, solutionLength } from './lib/words'
 import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
