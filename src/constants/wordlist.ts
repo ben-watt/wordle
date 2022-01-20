@@ -4,6 +4,7 @@ export const WORDS = [
   'ass',
   'balls',
   'bitch',
+  'bumsex',
   'boner',
   'boobs',
   'bum',

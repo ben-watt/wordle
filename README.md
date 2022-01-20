@@ -31,7 +31,6 @@ $ npm run start
 ## TODO:
 
 - Update the public assets (ideally generate on build)
-- Sometimes scrolls on mobile
 - Change the header bar to line up more with existing wordle
 - About section
 - Width dynamic dependant on screen size ✅

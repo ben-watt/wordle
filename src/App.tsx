@@ -6,7 +6,7 @@ import { Keyboard } from './components/keyboard/Keyboard'
 import { AboutModal } from './components/modals/AboutModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { WinModal } from './components/modals/WinModal'
-import { isWordInWordList, isWinningWord, solution, solutionLength } from './lib/words'
+import { isWordInWordList, isWinningWord, solution, solutionLength, nextWordMs, nextWordFomatted } from './lib/words'
 import {
   loadGameStateFromLocalStorage,
   saveGameStateToLocalStorage,
@@ -93,8 +93,8 @@ function App() {
   console.log(solution);
 
   return (
-    <div className="flex flex-col h-full justify-around py-2 w-fit mx-auto sm:px-6 lg:px-8">
-      <div>
+    <div className="flex flex-col h-full justify-around py-2 max-w-xl mx-auto sm:px-6 lg:px-8">
+      <div className="px-5">
         <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
         <Alert
           message={`Oh sweet child. The word was '${solution}'.`}
@@ -105,12 +105,12 @@ function App() {
           isOpen={shareComplete}
           variant="success"
         />
-        <div className="flex w-80 mx-auto items-center mb-3">
+        <div className="flex mx-auto items-center mb-3">
           <QuestionMarkCircleIcon className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />        
           <h1 className=" m-auto w-full text-center text-2xl font-bold">NSFWordle</h1> 
-          <InformationCircleIcon  className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />
+          <InformationCircleIcon  className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsAboutModalOpen(true)} />
         </div>
-        <hr />  
+        <hr />
       </div>
 
       <div className="grow">

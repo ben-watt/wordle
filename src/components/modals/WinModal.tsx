@@ -1,9 +1,10 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/outline'
 import { MiniGrid } from '../mini-grid/MiniGrid'
 import { shareStatus } from '../../lib/share'
 import { XCircleIcon } from '@heroicons/react/outline'
+import { nextWordFomatted } from '../../lib/words'
 
 type Props = {
   isOpen: boolean
@@ -35,6 +36,15 @@ export const WinModal = ({
   guesses,
   handleShare,
 }: Props) => {
+
+  let [countdown, setCountdown] = useState(nextWordFomatted());
+  let [messageIndex, _] = useState(Math.floor(Math.random() * winningMessages.length));
+
+  useEffect(() => {
+    let timer = setTimeout(() => setCountdown(nextWordFomatted()), 1000);
+    return () => clearTimeout(timer)
+  }, [countdown])
+
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
@@ -93,11 +103,14 @@ export const WinModal = ({
                     You won!
                   </Dialog.Title>
                   <p className="text-lg text-gray-500 m-5">
-                    {winningMessages[Math.floor(Math.random() * winningMessages.length)]}
+                    {winningMessages[messageIndex]}
                   </p>
                   <div className="m-5">
                     <MiniGrid guesses={guesses} />
                   </div>
+                </div>
+                <div> 
+                  <p className="text-center">Next word in: {countdown}</p>
                 </div>
               </div>
               <div className="mt-2 sm:mt-2">
