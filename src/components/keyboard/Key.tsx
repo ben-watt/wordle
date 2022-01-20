@@ -14,7 +14,6 @@ type Props = {
 export const Key = ({
   children,
   status,
-  width = 45,
   value,
   onClick,
 }: Props) => {
@@ -32,11 +31,11 @@ export const Key = ({
 
   return (
     <div
-      style={{ width: `${width}px`, height: '58px' }}
-      className={classes}
+      style={{ height: '58px' }}
+      className={classes + "flex flex-grow"}
       onClick={() => onClick(value)}
     >
-      {children || value}
+      <div style={{ minWidth: '12px' }} className="text-center">{children || value}</div>
     </div>
   )
 }

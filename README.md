@@ -30,20 +30,19 @@ $ npm run start
 
 ## TODO:
 
-- Get the look and feel more like classic WORDLE
-  - Spacing of grid 
-  - Keyboard
-  - Top bar
-- Alter the 'Share' tab to display more information about NSFWordle
 - Update the public assets (ideally generate on build)
 - Sometimes scrolls on mobile
+- Change the header bar to line up more with existing wordle
+- About section
+- Width dynamic dependant on screen size
+
+- "Not enough letters animation and alert"
+- Revel animation
+- Success Animation
+- Next word countdown?
 
 Before Go Live:
 
 - Need to add the naughty words to the real word list
 - Need to randomise wordlist
 - Update the msEpoc
-
-Other:
-
-- Enter on the left?
