@@ -1,4 +1,5 @@
 export const WORDS = [
+  'none',
   'anus',
   'cunt',
   'jizz',
