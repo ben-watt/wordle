@@ -30,14 +30,8 @@ $ npm run start
 
 ## TODO:
 
-- Update the public assets (ideally generate on build)
-
-- Not enough letters animation and alert
+- "Not enough letters" animation and alert
 - Revel animation
 - Success 
 - Dark theme
 - Settings?
-
-Before Go Live:
-
-- Need to randomise wordlist
