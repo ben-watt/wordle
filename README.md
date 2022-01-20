@@ -30,8 +30,7 @@ $ npm run start
 
 ## TODO:
 
-- "Not enough letters" animation and alert
+- Not enough letters animation and alert
 - Revel animation
-- Success 
+- Success animation
 - Dark theme
-- Settings?
