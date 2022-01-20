@@ -15,15 +15,15 @@ type Props = {
 
 const winningMessages = [
   "Awesome, now wash your mouth out, you filthy animal!",
-  "Well done, you dirty minded sicko. ",
-  "Impressive! Disgusting, but impressive. ",
-  "Nice work, but what would your mother say?",
+  "Well done, you dirty minded sicko.",
+  "Greta Thunberg is wondering what you plan to do about your polluted mind.",
+  "Impressive! Disgusting, but impressive.",
   "Awesome, in a sickening way. ",
-  "Well peel that tangerine and throw it at a baby because you're a terrible human.  ",
-  "Eat soap. Because you're filthy inside.  ",
+  "Well peel that tangerine and throw it at a baby because you're a terrible human.",
+  "Eat soap. Because you're filthy inside.",
   "Just got off the phone with David Attenborough. He said you're a different breed of human. ",
   "Good work, now look in the mirror and have a word with yourself. ",
-  "Splendid.  You've lost your place in heaven. ",
+  "Splendid.  You've lost your place in heaven.",
   "I've lost what little respect I had left for you. ",
   "Bravo. Now have a think about what you said.",
   "You did it! By the way covid called, it wants advice on how to be awful.",
@@ -39,7 +39,7 @@ export const WinModal = ({
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed z-10 inset-0 overflow-y-auto text-slate-500"
         onClose={handleClose}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">

@@ -1,4 +1,4 @@
-import { InformationCircleIcon } from '@heroicons/react/outline'
+import { InformationCircleIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline'
 import { useState, useEffect } from 'react'
 import { Alert } from './components/alerts/Alert'
 import { Grid } from './components/grid/Grid'
@@ -97,7 +97,7 @@ function App() {
       <div>
         <Alert message="Word not found" isOpen={isWordNotFoundAlertOpen} />
         <Alert
-          message={`Oh sweet child. The word was '${solution}'`}
+          message={`Oh sweet child. The word was '${solution}'.`}
           isOpen={isGameLost}
         />
         <Alert
@@ -106,11 +106,9 @@ function App() {
           variant="success"
         />
         <div className="flex w-80 mx-auto items-center mb-3">
-          <h1 className="text-2xl grow font-bold">NSFWordle</h1>
-          <InformationCircleIcon
-            className="h-6 w-6 cursor-pointer"
-            onClick={() => setIsInfoModalOpen(true)}
-          />
+          <QuestionMarkCircleIcon className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />        
+          <h1 className=" m-auto w-full text-center text-2xl font-bold">NSFWordle</h1> 
+          <InformationCircleIcon  className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />
         </div>
         <hr />  
       </div>

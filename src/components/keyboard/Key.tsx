@@ -6,7 +6,6 @@ import { CharStatus } from '../../lib/statuses'
 type Props = {
   children?: ReactNode
   value: KeyValue
-  width?: number
   status?: CharStatus
   onClick: (value: KeyValue) => void
 }

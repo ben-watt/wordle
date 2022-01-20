@@ -34,7 +34,7 @@ $ npm run start
 - Sometimes scrolls on mobile
 - Change the header bar to line up more with existing wordle
 - About section
-- Width dynamic dependant on screen size
+- Width dynamic dependant on screen size ✅
 
 - "Not enough letters animation and alert"
 - Revel animation
