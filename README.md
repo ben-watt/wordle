@@ -31,17 +31,13 @@ $ npm run start
 ## TODO:
 
 - Update the public assets (ideally generate on build)
-- Change the header bar to line up more with existing wordle
-- About section
-- Width dynamic dependant on screen size ✅
 
-- "Not enough letters animation and alert"
+- Not enough letters animation and alert
 - Revel animation
-- Success Animation
-- Next word countdown?
+- Success 
+- Dark theme
+- Settings?
 
 Before Go Live:
 
-- Need to add the naughty words to the real word list
 - Need to randomise wordlist
-- Update the msEpoc
