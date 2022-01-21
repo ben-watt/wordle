@@ -41,7 +41,9 @@ export const WinModal = ({
   let [messageIndex] = useState(Math.floor(Math.random() * winningMessages.length));
 
   useEffect(() => {
-    let timer = setTimeout(() => setCountdown(nextWordFomatted()), 1000);
+    let timer = setTimeout(() => {
+      setCountdown(nextWordFomatted())
+    }, 2000);
     return () => clearTimeout(timer)
   }, [countdown])
 
