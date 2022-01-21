@@ -8,15 +8,15 @@ export const shareStatus = (guesses: string[]) => {
   if (navigator.share) {
     navigator.share({
       title: 'NSFWordle',
+      text: shareText,
       url: window.location.toString()
     }).then(() => {
-      console.log('Thanks for sharing!');
+      console.debug('Thanks for sharing!');
     })
     .catch(console.error);
   } else {
     navigator.clipboard.writeText(shareText)
   }
- 
 }
 
 export const generateEmojiGrid = (guesses: string[]) => {
