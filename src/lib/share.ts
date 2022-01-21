@@ -2,16 +2,21 @@ import { getGuessStatuses } from './statuses'
 import { solutionIndex } from './words'
 
 export const shareStatus = (guesses: string[]) => {
-  navigator.clipboard.writeText(
-    'NSFWordle ' +
-      solutionIndex +
-      ' ' +
-      guesses.length +
-      '/6\n\n' +
-      generateEmojiGrid(guesses) + 
-      '\n\n' +
-      'www.nsfwordle.com'
-  )
+  const shareText = `NSFWordle ${solutionIndex} ${guesses.length}/6\n\n` 
+  + `${generateEmojiGrid(guesses)}\n\nwww.nsfwordle.com`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'NSFWordle',
+      url: window.location.toString()
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(console.error);
+  } else {
+    navigator.clipboard.writeText(shareText)
+  }
+ 
 }
 
 export const generateEmojiGrid = (guesses: string[]) => {
