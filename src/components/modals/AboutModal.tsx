@@ -61,19 +61,12 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Created by
-                      <a
-                        href="https://github.com/ben-watt"
-                        className="underline font-bold"
-                      >
-                        Ben Watt and Katie Vallance.
-                      </a>{' '} 
-                      With a big thanks to the original wordle and the creator of the open source wordle fork.{' '}
+                      A big thanks to the original wordle and the creator of the open source wordle clone.{' '}
                       <a
                         href="https://github.com/hannahcode/wordle"
                         className="underline font-bold"
                       >
-                        Check out the fork here
+                        Check out the clone here
                       </a>{' '}
                       and{' '}
                       <a
