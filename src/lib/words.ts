@@ -26,21 +26,23 @@ export const getWordOfDay = () => {
   const index = Math.floor((now - epochMs) / msInDay)
   const wordOfTheDay =  WORDS[index].toUpperCase()
   const daysPassed = index + 1;
-  const nextWordMs = () => (((Date.now() - epochMs) / daysPassed) - msInDay) * -1
 
   return {
     solution: wordOfTheDay,
     solutionIndex: index,
     solutionLength: wordOfTheDay.length,
-    nextWordMs: nextWordMs(),
-    nextWordFomatted: () => {
-      const ms = nextWordMs();
+    nextWordMs: () => ((Date.now() - epochMs) - (daysPassed * msInDay)) * -1,
+    formatNextWordMS: (nextWordMS: number) => {
+      let millisecondsInDay = 86400000
+      let millisecondsInHour = 3600000
+      let millisecondsInMinute = 60000
+      let millisecondsInSecond = 1000
 
-      return appendLeadingZero(Math.floor((ms % 86400000) / 3600000))
-      + ":" + appendLeadingZero(Math.round(((ms % 86400000) % 3600000) / 60000))
-      + ":" + appendLeadingZero(Math.round((((ms % 86400000) % 3600000) % 60000) / 1000))
+      return appendLeadingZero(Math.floor((nextWordMS % millisecondsInDay) / millisecondsInHour))
+      + ":" + appendLeadingZero(Math.round(((nextWordMS % millisecondsInDay) % millisecondsInHour) / millisecondsInMinute))
+      + ":" + appendLeadingZero(Math.round((((nextWordMS % millisecondsInDay) % millisecondsInHour) % millisecondsInMinute) / millisecondsInSecond))
     }
   }
 }
 
-export const { solution, solutionIndex, solutionLength, nextWordMs, nextWordFomatted } = getWordOfDay()
+export const { solution, solutionIndex, solutionLength, nextWordMs, formatNextWordMS } = getWordOfDay()

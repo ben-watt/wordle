@@ -4,7 +4,7 @@ import { CheckIcon } from '@heroicons/react/outline'
 import { MiniGrid } from '../mini-grid/MiniGrid'
 import { shareStatus } from '../../lib/share'
 import { XCircleIcon } from '@heroicons/react/outline'
-import { nextWordFomatted } from '../../lib/words'
+import { formatNextWordMS, nextWordMs } from '../../lib/words'
 
 type Props = {
   isOpen: boolean
@@ -24,7 +24,7 @@ const winningMessages = [
   "Eat soap. Because you're filthy inside.",
   "Just got off the phone with David Attenborough. He said you're a different breed of human. ",
   "Good work, now look in the mirror and have a word with yourself. ",
-  "Splendid.  You've lost your place in heaven.",
+  "Splendid. You've lost your place in heaven.",
   "I've lost what little respect I had left for you. ",
   "Bravo. Now have a think about what you said.",
   "You did it! By the way covid called, it wants advice on how to be awful.",
@@ -37,13 +37,13 @@ export const WinModal = ({
   handleShare,
 }: Props) => {
 
-  let [countdown, setCountdown] = useState(nextWordFomatted());
+  let [countdown, setCountdown] = useState(nextWordMs());
   let [messageIndex] = useState(Math.floor(Math.random() * winningMessages.length));
 
   useEffect(() => {
     let timer = setTimeout(() => {
-      setCountdown(nextWordFomatted())
-    }, 2000);
+      setCountdown(nextWordMs())
+    }, 1000);
     return () => clearTimeout(timer)
   }, [countdown])
 
@@ -112,7 +112,7 @@ export const WinModal = ({
                   </div>
                 </div>
                 <div> 
-                  <p className="text-center">Next word in: {countdown}</p>
+                  <p className="text-center">Next word in: {formatNextWordMS(countdown)}</p>
                 </div>
               </div>
               <div className="mt-2 sm:mt-2">
