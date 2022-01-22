@@ -2,8 +2,7 @@ import { getGuessStatuses } from './statuses'
 import { solutionIndex } from './words'
 
 export const shareStatus = (guesses: string[]) => {
-  const shareText = `NSFWordle ${solutionIndex} ${guesses.length}/6\n\n` 
-  + `${generateEmojiGrid(guesses)}\n\nwww.nsfwordle.com`;
+  const shareText = `NSFWordle ${solutionIndex} ${guesses.length}/6\n\n${generateEmojiGrid(guesses)}\n\n`;
 
   if (navigator.share) {
     navigator.share({
@@ -15,7 +14,8 @@ export const shareStatus = (guesses: string[]) => {
     })
     .catch(console.error);
   } else {
-    navigator.clipboard.writeText(shareText)
+    // navigator.share already adds the link so for the clip board we must add it manually
+    navigator.clipboard.writeText(shareText + "https://www.nsfwordle.com")
   }
 }
 
