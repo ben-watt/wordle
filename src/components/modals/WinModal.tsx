@@ -28,6 +28,12 @@ const winningMessages = [
   "I've lost what little respect I had left for you. ",
   "Bravo. Now have a think about what you said.",
   "You did it! By the way covid called, it wants advice on how to be awful.",
+  "Correct! I don't know which aisle of B&Q has something for your broken mind.",
+  "Filthier than Carol Baskin's past.",
+  "Pack your bags and drive straight to hell. Satan's expecting you. ",
+  "Were your parents chickens? Because you have fowl language!",
+  "If Santa brings you presents this year it's because he feels sorry for you. ",
+  "You did it! I get the feeling you weren't hugged enough as a child.",
 ]
 
 export const WinModal = ({
