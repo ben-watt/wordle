@@ -1,7 +1,7 @@
 import { WORDS } from '../constants/wordlist'
-import { VALIDGUESSES } from '../constants/validGuesses'
 
-export const isWordInWordList = (word: string) => {
+export const isWordInWordList = async (word: string) => {
+  let { VALIDGUESSES } = await import( '../constants/validGuesses');
   return (
     WORDS.includes(word.toLowerCase()) ||
     VALIDGUESSES.includes(word.toLowerCase())
