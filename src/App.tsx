@@ -59,8 +59,9 @@ function App() {
     setCurrentGuess(currentGuess.slice(0, -1))
   }
 
-  const onEnter = () => {
-    if (!isWordInWordList(currentGuess)) {
+  const onEnter = async () => {
+    var isValidGuess = await isWordInWordList(currentGuess)
+    if (!isValidGuess) {
       setIsWordNotFoundAlertOpen(true)
       return setTimeout(() => {
         setIsWordNotFoundAlertOpen(false)
