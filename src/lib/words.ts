@@ -1,11 +1,27 @@
 import { WORDS } from '../constants/wordlist'
 
 export const isWordInWordList = async (word: string) => {
-  let { VALIDGUESSES } = await import( '../constants/validGuesses');
+  
+  let VALIDGUESSES = getValidGuessesFromStorage();
+  if(VALIDGUESSES === null) {
+    let importedGuesses = await import( '../constants/validGuesses');
+    setValidGuessesInStorage(importedGuesses.VALIDGUESSES);
+    VALIDGUESSES = importedGuesses.VALIDGUESSES
+  }
+
+
   return (
     WORDS.includes(word.toLowerCase()) ||
     VALIDGUESSES.includes(word.toLowerCase())
   )
+}
+
+const getValidGuessesFromStorage = () : string[] => {
+  return JSON.parse(localStorage.getItem("validGuesses"));
+}
+
+const setValidGuessesInStorage = (validGuesses : string[]) => {
+  localStorage.setItem("validGuesses", JSON.stringify(validGuesses));
 }
 
 export const isWinningWord = (word: string) => {
