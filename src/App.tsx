@@ -101,7 +101,7 @@ function App() {
         />
         <div className="flex mx-auto items-center mb-3">
           <QuestionMarkCircleIcon className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />        
-          <h1 className=" m-auto w-full text-center text-2xl font-bold">NSFWordle</h1> 
+          <h1 className=" m-auto w-full text-center text-2xl font-bold tracking-widest">NSFWordle</h1>
           <InformationCircleIcon  className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsAboutModalOpen(true)} />
         </div>
         <hr />
