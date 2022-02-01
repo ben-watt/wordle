@@ -53,8 +53,28 @@ const SettingsView = ({ onClose }) => {
       <div>
         <SettingsTitle text="Settings" onClose={() => onClose(false)} />
       </div>
-      <div>Some text</div>
+      <div className="flex justify-between py-5">
+        <div>
+          <p>Dark Theme</p>
+        </div>
+        <div>
+          <Toggle />
+        </div>
+      </div>
       <div>Footer</div>
+    </div>
+  )
+}
+
+const Toggle = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  return (
+    <div className="mb-3">
+    <div className="relative inline-block w-10 mr-2 align-middle select-none">
+        <input type="checkbox" name="toggle" id="on" onChange={() => setIsActive(!isActive)} className="outline-none focus:outline-none right-5 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-400 appearance-none cursor-pointer"/>
+          <label htmlFor="on" className={`block overflow-hidden h-6 rounded-full cursor-pointer duration-200 ease-in ${isActive ? "bg-pink-400" : "bg-gray-300" }`} />
+        </div>
     </div>
   )
 }
