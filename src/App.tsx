@@ -38,7 +38,7 @@ function App() {
 const PageTransition = ({ className, show, children }) => {
   return (
     <Transition
-    className="h-full flex flex-col justify-between"
+    className={className}
     show={show}
     enter="transition-opacity duration-500"
     enterFrom='opacity-0 translate-y-20'>
