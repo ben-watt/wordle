@@ -1,3 +1,4 @@
+import { Transition } from '@headlessui/react'
 import { CompletedRow } from './CompletedRow'
 import { CurrentRow } from './CurrentRow'
 import { EmptyRow } from './EmptyRow'
@@ -18,7 +19,7 @@ export const Grid = ({ className = "", guesses, currentGuess, solutionLength, gu
     <div className={`pb-6 ${className}`}>
       <div>
         {guesses.map((guess, i) => (
-          <CompletedRow key={i} guess={guess} />
+            <CompletedRow key={i} guess={guess} />          
         ))}
         {guesses.length < guessLimit && <CurrentRow guess={currentGuess} length={solutionLength} />}
         {empties.map((_, i) => (

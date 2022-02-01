@@ -77,6 +77,14 @@ const SettingsView = ({ onClose }) => {
           <Toggle id="hardMode" />
         </div>
       </div>
+      <div className="flex justify-between py-2">
+        <div>
+          <p>Feedback</p>
+        </div>
+        <div>
+          <p>Email | Github</p>
+        </div>
+      </div>
     </div>
   )
 }

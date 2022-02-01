@@ -1,3 +1,4 @@
+import { Transition } from '@headlessui/react'
 import { Cell } from './Cell'
 
 type Props = {
@@ -12,7 +13,14 @@ export const CurrentRow = ({ guess, length }: Props) => {
   return (
     <div className="flex justify-center mb-1">
       {splitGuess.map((letter, i) => (
-        <Cell key={i} value={letter} />
+        <Transition
+          show={true}
+          appear={true}
+          enterFrom='scale-110 duration-200'
+          enterTo='scale-100'>
+          <Cell key={i} value={letter} />
+        </Transition>
+       
       ))}
       {emptyCells.map((_, i) => (
         <Cell key={i} />
