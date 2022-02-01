@@ -82,7 +82,7 @@ const SettingsView = ({ onClose }) => {
           <p>Feedback</p>
         </div>
         <div>
-          <p>Email | Github</p>
+          <p><a href="mailto:ben.watt@gmail.com">Email</a> | <a href="https://github.com/users/ben-watt/projects/2/views/1">Feature Requets | Bugs</a></p>
         </div>
       </div>
     </div>
@@ -190,7 +190,7 @@ const GameView = ({ setIsSettingsOpen }) => {
       </div>
 
       <div className="grow">
-        <Grid className="flex justify-center items-center h-full" guesses={guesses} currentGuess={currentGuess} solutionLength={solutionLength} guessLimit={guessLimit} />
+        <Grid className="flex justify-center items-center h-full" isWordNotFoundAlertOpen={isWordNotFoundAlertOpen} guesses={guesses} currentGuess={currentGuess} solutionLength={solutionLength} guessLimit={guessLimit} />
       </div>
 
       <Keyboard
@@ -236,7 +236,6 @@ const Title = ({ text, setIsSettingsOpen }) => {
           isOpen={isAboutModalOpen}
           handleClose={() => setIsAboutModalOpen(false)}
         />
-        
       </div>
       <hr />
     </>
