@@ -244,7 +244,7 @@ const Title = ({ text, setIsSettingsOpen }) => {
     <>
       <div className="flex mx-auto items-center mb-3">
         <QuestionMarkCircleIcon className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />        
-        <h1 className="m-auto w-full text-center text-2xl font-bold tracking-widest">{text}</h1>
+        <h1 className="m-auto w-full text-center text-2xl font-bold tracking-widest"><span className="text-red-600">NSFW</span>ordle</h1>
         <InformationCircleIcon  className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsAboutModalOpen(true)} />
         <CogIcon className="h-6 w-6 cursor-pointer text-slate-500 hover:rotate-90 duration-500" onClick={() => setIsSettingsOpen(true)} />
         <InfoModal
