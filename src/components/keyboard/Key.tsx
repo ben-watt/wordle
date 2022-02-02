@@ -19,7 +19,7 @@ export const Key = ({
   const classes = classnames(
     'flex items-center justify-center rounded mx-0.5 my-0.5 text-xs font-bold cursor-pointer',
     {
-      'bg-slate-200 hover:bg-slate-300 active:bg-slate-400': !status,
+      'bg-slate-200 hover:bg-slate-300 active:bg-slate-400 dark:bg-zinc-600': !status,
       'bg-slate-400 text-white': status === 'absent',
       'bg-green-500 hover:bg-green-600 active:bg-green-700 text-white':
         status === 'correct',
@@ -31,7 +31,7 @@ export const Key = ({
   return (
     <div
       style={{ height: '58px' }}
-      className={classes + "flex flex-grow"}
+      className={classes + " flex flex-grow"}
       onClick={() => onClick(value)}
     >
       <div style={{ minWidth: '12px' }} className="text-center">{children || value}</div>

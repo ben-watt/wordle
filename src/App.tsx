@@ -1,5 +1,5 @@
 import { CogIcon, InformationCircleIcon, QuestionMarkCircleIcon, XIcon } from '@heroicons/react/outline'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Alert } from './components/alerts/Alert'
 import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
@@ -16,10 +16,16 @@ import { Transition } from '@headlessui/react'
 const guessLimit = 6;
 
 function App() {
-  const [settingsOpen, setIsSettingsOpen] = useState(true)
+  const [settingsOpen, setIsSettingsOpen] = useState(false)
+
+
+  if(JSON.parse(localStorage.getItem("darkTheme"))) {
+    document.documentElement.classList.add('dark')
+  }
 
   return (
-    <div className="h-full py-2 max-w-xl sm:px-6 lg:px-8 mx-auto">
+    <div className='h-full w-full dark:bg-zinc-900 dark:text-white'>
+      <div className="h-full py-2 max-w-xl sm:px-6 lg:px-8 mx-auto ">
        <PageTransition
           className="h-full flex flex-col justify-between"
           show={!settingsOpen} >
@@ -31,17 +37,18 @@ function App() {
            <SettingsView onClose={() => setIsSettingsOpen(false)} />
       </PageTransition>
     
-    </div>
+     </div>
+  </div>
   )
 }
 
 const PageTransition = ({ className, show, children }) => {
   return (
     <Transition
-    className={className}
-    show={show}
-    enter="transition-opacity duration-500"
-    enterFrom='opacity-0 translate-y-20'>
+      className={className}
+      show={show}
+      enter="transition-opacity duration-500"
+      enterFrom='opacity-0 translate-y-20'>
       {children}
   </Transition>
   )
@@ -61,7 +68,7 @@ const SettingsView = ({ onClose }) => {
           <Toggle id="darkTheme" />
         </div>
       </div>
-      <div className="flex justify-between py-2">
+      {/* <div className="flex justify-between py-2">
         <div>
           <p>High Contrast</p>
         </div>
@@ -76,7 +83,7 @@ const SettingsView = ({ onClose }) => {
         <div>
           <Toggle id="hardMode" />
         </div>
-      </div>
+      </div> */}
       <div className="flex justify-between py-2">
         <div>
           <p>Feedback</p>
@@ -90,12 +97,24 @@ const SettingsView = ({ onClose }) => {
 }
 
 const Toggle = ({ id }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(JSON.parse(localStorage.getItem(id)) ?? false);
+
+  const handleChange = () => {
+    let newValue = !isActive
+    setIsActive(newValue)
+    localStorage.setItem(id, JSON.stringify(newValue))
+
+    if(newValue) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }
 
   return (
     <div className="mb-3">
       <div className="relative inline-block w-10 mr-2 align-middle select-none">
-        <input type="checkbox" name="toggle" id={id} onChange={() => setIsActive(!isActive)} className="outline-none focus:outline-none right-5 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-400 appearance-none cursor-pointer"/>
+        <input type="checkbox" name="toggle" id={id} onChange={handleChange} checked={isActive} className="outline-none focus:outline-none right-5 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-gray-400 appearance-none cursor-pointer"/>
         <label htmlFor={id} className={`block overflow-hidden h-6 rounded-full cursor-pointer duration-200 ease-in ${isActive ? "bg-pink-400" : "bg-gray-300" }`} />
       </div>
     </div>
