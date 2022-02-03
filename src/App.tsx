@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <div className='h-full w-full dark:bg-zinc-900 dark:text-white'>
+    <div className='h-full w-full dark:bg-zinc-900 dark:text-white p-2'>
       <div className="h-full py-2 max-w-xl sm:px-6 lg:px-8 mx-auto ">
        <PageTransition
           className="h-full flex flex-col justify-between"
@@ -243,10 +243,15 @@ const Title = ({ text, setIsSettingsOpen }) => {
   return (
     <>
       <div className="flex mx-auto items-center mb-3">
-        <QuestionMarkCircleIcon className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />        
-        <h1 className="m-auto w-full text-center text-2xl font-bold tracking-widest"><span className="text-red-600">NSFW</span>ordle</h1>
-        <InformationCircleIcon  className="h-6 w-6 cursor-pointer text-slate-500" onClick={() => setIsAboutModalOpen(true)} />
-        <CogIcon className="h-6 w-6 cursor-pointer text-slate-500 hover:rotate-90 duration-500" onClick={() => setIsSettingsOpen(true)} />
+        <div className="flex gap-1 min-w-[60px]">
+          <QuestionMarkCircleIcon className="h-7 w-7 cursor-pointer text-slate-500" onClick={() => setIsInfoModalOpen(true)} />  
+        </div>
+        <h1 className="m-auto text-center text-2xl font-bold tracking-widest"><span className="text-red-600">NSFW</span>ordle</h1>
+        <div className="flex gap-1">
+          <InformationCircleIcon  className="h-7 w-7 cursor-pointer text-slate-500" onClick={() => setIsAboutModalOpen(true)} />
+          <CogIcon className="h-7 w-7 cursor-pointer text-slate-500 hover:rotate-90 duration-500" onClick={() => setIsSettingsOpen(true)} />
+        </div>
+
         <InfoModal
             isOpen={isInfoModalOpen}
             handleClose={() => setIsInfoModalOpen(false)}
@@ -266,9 +271,13 @@ const Title = ({ text, setIsSettingsOpen }) => {
 const SettingsTitle = ({ text, onClose }) => {
   return (
     <>
-      <div className="flex mx-auto items-center mb-3">      
+      <div className="flex mx-auto items-center mb-3">
+        <div className="flex gap-1 min-w-[60px]"> 
+        </div>
         <h1 className="m-auto w-full text-center text-2xl font-bold tracking-widest">{text}</h1>
-        <XIcon className="h-6 w-6 cursor-pointer text-slate-500 hover:rotate-90 duration-500" onClick={onClose} />        
+        <div className="flex gap-1 min-w-[60px] justify-end">
+          <XIcon className="h-7 w-7 cursor-pointer text-slate-500 hover:rotate-90 duration-500" onClick={onClose} />    
+        </div>
       </div>
       <hr />
     </>

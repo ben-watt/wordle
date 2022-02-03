@@ -16,7 +16,7 @@ export const Grid = ({ className = "", guesses, currentGuess, solutionLength, gu
   const empties = guesses.length < guessLimit ? Array.from(Array(numberofEmpties)) : [];
 
   return (
-    <div className={`pb-6 ${className}`}>
+    <div className={className}>
       <div>
         {guesses.map((guess, i) => (
             <CompletedRow key={i} guess={guess} />          

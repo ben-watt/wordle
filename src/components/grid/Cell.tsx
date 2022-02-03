@@ -8,7 +8,7 @@ type Props = {
 
 export const Cell = ({ value, status }: Props) => {
   const classes = classnames(
-    'w-14 h-14 border-solid border-2 flex items-center justify-center mx-0.5 text-lg font-bold',
+    'w-[3.2rem] h-[3.2rem] border-solid border-2 flex items-center justify-center mx-0.5 text-lg font-bold',
     {
       'bg-white border-slate-200 dark:bg-zinc-900': !status,
       'bg-slate-400 text-white border-slate-400 dark:bg-zinc-600': status === 'absent',
