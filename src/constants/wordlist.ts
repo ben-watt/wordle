@@ -38,11 +38,13 @@ export const WORDS = [
   'minge',
   'whore',
   'chode',
+  'poo',
   'wanker',
   'prick',
   'pube',
   'wank',
   'bum',
+  'poop',
   'penis',
   'tosser',
   'knob',
@@ -56,4 +58,7 @@ export const WORDS = [
   'clunge',
   'bitch',
   'shit',
+  'cum',
+  'tit',
+  'vaj'
 ]
