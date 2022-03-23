@@ -62,7 +62,6 @@ export const WORDS = [
   'tit',
   'vaj',
   'xxx',
-'zigabo',
 'willy',
 'assholes',
 'nastybitch',
